@@ -1,3 +1,5 @@
+import { EnvelopeIcon, LocationIcon } from "@/assets/icons/icons"
+
 export const navbarItems = [
   {
     title: "Home",
@@ -59,3 +61,17 @@ export const mainProjectTechs = {
     },
   ]
 }
+
+export const personalInformation = [
+  {
+    title: "E-mail",
+    information: "ygorbravimr@gmail.com",
+    icon: <EnvelopeIcon width={24} height={24} fill="#db2d1b" />
+  },
+  {
+    title: "Location",
+    information: "Vitória, ES - Brazil",
+    icon: <LocationIcon width={24} height={24} fill="#db2d1b" />
+  }
+]
+

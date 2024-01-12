@@ -6,13 +6,15 @@ import mainProjectImage from "../assets/images/mainProjectImage.png"
 import { Header } from "@/components/Header"
 import Image from "next/image"
 import { TechsShowList } from "@/components/TechsShowList"
-import { mainProjectTechs } from "@/utils/InformationData"
+import { mainProjectTechs, personalInformation } from "@/utils/InformationData"
+import { SidePersonalInfo } from "@/components/SidePersonalInfo"
+import { ContactForm } from "@/components/ContactForm"
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="flex min-h-screen flex-col items-center justify-between px-24 py-12 w-full gap-24 text-xl text-blackColor dark:text-whiteColor">
         <section id="home" className="w-full flex flex-col md:flex-row  items-center justify-center gap-6">
           <div className="flex flex-col items-center text-center gap-3">
             <p>
@@ -83,6 +85,30 @@ export default function Home() {
           <div className="flex flex-col items-start text-center gap-4">
             <TechsShowList techList={mainProjectTechs.frontend} label="Front-end" />
             <TechsShowList techList={mainProjectTechs.backend} label="Back-end" />
+          </div>
+        </section>
+
+        <section id="contact" className="w-full flex flex-col items-center justify-center gap-6">
+          <div className="text-center">
+            <h3 className="uppercase text-xl" >
+              Contact me
+            </h3>
+            <p className="text-darkGrayColor">
+              Leave me a message
+            </p>
+          </div>
+          <div className="flex flex-col-reverse md:flex-row text-center justify-center gap-6 w-full max-w-5xl">
+            <div className="flex flex-col gap-6 mt-4">
+              {personalInformation.map((item, i) => (
+                <SidePersonalInfo
+                  key={item.title + i}
+                  title={item.title}
+                  information={item.information}
+                  icon={item.icon}
+                />
+              ))}
+            </div>
+            <ContactForm />
           </div>
         </section>
       </main>
