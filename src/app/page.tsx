@@ -2,8 +2,11 @@ import { Footer } from "@/components/Footer"
 import { GetInTouchButton } from "@/components/GetInTouchButton"
 import homeImage from "../assets/images/homeImage.png"
 import aboutImage from "../assets/images/aboutImage.jpeg"
+import mainProjectImage from "../assets/images/mainProjectImage.png"
 import { Header } from "@/components/Header"
 import Image from "next/image"
+import { TechsShowList } from "@/components/TechsShowList"
+import { mainProjectTechs } from "@/utils/InformationData"
 
 export default function Home() {
   return (
@@ -53,6 +56,33 @@ export default function Home() {
               them easier and more enjoyable. Student at RocketSeat, focusing on ReactJS with Typescript.
               Portuguese native speaker, English learned speaker, 4 years living in the United States, 22 (and counting) living in Brazil.
             </p>
+          </div>
+        </section>
+        <section id="showcase" className="w-full flex flex-col items-center justify-center gap-6">
+          <h3 className="uppercase text-xl" >
+            Showcase
+          </h3>
+          <h4 className="font-bold text-2xl">Brave Finances</h4>
+          <div className="flex flex-col-reverse md:flex-row items-center text-center justify-center gap-4">
+            <div className="flex flex-col-reverse md:flex-col items-center justify-center gap-4 w-full md:w-full md:max-w-2xl">
+              <p>Application in development that unify the control of personal
+                finances and investments in the same place, making it easier to get control of the financial life.
+              </p>
+              <button className="text-whiteColor dark:text-whiteColor border-blackColor dark:border-whiteColor bg-mainColor font-bold py-2 px-4 rounded-sm border cursor-default">
+                Coming Soon!!
+              </button>
+            </div>
+            <Image
+              className="rounded-xl w-full md:w-3/5 lg:w-130 lg:h-130"
+              src={mainProjectImage}
+              alt="Ygor image, person picture."
+              width={540}
+              height={400}
+            />
+          </div>
+          <div className="flex flex-col items-start text-center gap-4">
+            <TechsShowList techList={mainProjectTechs.frontend} label="Front-end" />
+            <TechsShowList techList={mainProjectTechs.backend} label="Back-end" />
           </div>
         </section>
       </main>
